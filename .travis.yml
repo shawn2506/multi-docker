@@ -6,13 +6,13 @@ before_install:
   - docker build -t shonry27/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run shonry27/react-test npm test -- --coverage
+  - docker run -e CI=true shonry27/react-test npm test -- --coverage
 
 after_success:
-  - docker-build -t shonry27/multi-client ./client
-  - docker-build -t shonry27/multi-nginx ./nginx
-  - docker-build -t shonry27/multi-server ./server
-  - docker-build -t shonry27/mutli-worker ./worker
+  - docker build -t shonry27/multi-client ./client
+  - docker build -t shonry27/multi-nginx ./nginx
+  - docker build -t shonry27/multi-server ./server
+  - docker build -t shonry27/mutli-worker ./worker
   # Login to Docker Hub
   - docker -u "$DOCKER_ID" -p "$DOCKER_PASSWORD"
   #- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
