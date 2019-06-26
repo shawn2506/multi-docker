@@ -12,7 +12,7 @@ after_success:
   - docker build -t shonry27/multi-client ./client
   - docker build -t shonry27/multi-nginx ./nginx
   - docker build -t shonry27/multi-server ./server
-  - docker build -t shonry27/mutli-worker ./worker
+  - docker build -t shonry27/multi-worker ./worker
   # Login to Docker Hub
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Push to Docker Hub
