@@ -39,7 +39,7 @@
                 }
             ],
             
-            "links": ["client","server"],
+            "links": ["client","api"],
             "memory": 200
 
           }
